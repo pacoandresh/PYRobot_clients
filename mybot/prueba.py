@@ -7,9 +7,8 @@ import time
 robot=Client()
 
 robot.Available_Robots()
-robot.Connect_Robot("pcubuntu")
+robot.Connect_Robot("mybot01")
 robot.show_info()
-
 robot.TOPICS_list("MYgps/X","MYgps/Y","BaseM/mi","BaseM/md","temperatura1/temp")
 robot.SERVICES(cam="camara_frontal/camera")
 robot.TOPICS(X="MYgps/X",Y="MYgps/Y")
@@ -26,7 +25,7 @@ cam=ClientCamera(robot.cam)
 
 robot.base.set(100,100)
 for x in range(2000):
-    time.sleep(0.1)
+    time.sleep(0.05)
     print(robot.mi,robot.md,robot.X,robot.Y)
     print(robot.BM)
     if "Max" in robot.BM:
